@@ -28,7 +28,7 @@ CREATE TABLE measurements (
     col_e           TEXT,
     col_f           TEXT,
     nullable_col    TEXT,                        -- the problem column
-    UNIQUE (time, col_a, col_b, col_c, col_e, nullable_col)
+    UNIQUE NULLS NOT DISTINCT (time, col_a, col_b, col_c, col_e, nullable_col)
 );
 
 SELECT create_hypertable('measurements', by_range('time'));
